@@ -3,12 +3,18 @@ import React from 'react';
 const OperatingSystems = () => {
     // Array of operating systems with their details
     const operatingSystems = [
-        { name: "Windows", image: "/api/placeholder/150/150" },
-        { name: "Ubuntu", image: "/api/placeholder/150/150" },
-        { name: "Debian", image: "/api/placeholder/150/150" },
-        { name: "CentOS", image: "/api/placeholder/150/150" },
-        { name: "Red Hat", image: "/api/placeholder/150/150" },
+        { name: "Windows", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-c88485c.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:133,h:100,cg:true" },
+        { name: "Ubuntu", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-d21e4f9.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:178,h:100,cg:true" },
+        { name: "Debian", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-a8e1a38.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:200,h:100,cg:true" },
+        { name: "CentOS", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-852a8e1.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:178,h:100,cg:true" },
+        { name: "Red Hat", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-c92ab6e.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:259,h:100,cg:true" },
+        { name: "Plesk", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-dc181a3.png/:/cr=t:1.74%25,l:17.03%25,w:82.97%25,h:82.97%25/rs=w:241,h:100,cg:true,m" },
+        { name: "AlmaLinux", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-d21e4f9.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:178,h:100,cg:true" },
+        { name: "RockyLinux", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-04da0ee.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:178,h:100,cg:true" },
+        { name: "cPanel", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-db50c23.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:221,h:100,cg:true" },
+        { name: "OpenSUSE", image: "http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-3381837.png/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:160,h:100,cg:true" },
     ];
+    
 
     return (
         <div className="py-16 bg-white">

@@ -6,15 +6,22 @@ const ContactPage = () => {
     firstName: '',
     lastName: '',
     email: '',
-    company: '',
     phone: '',
-    message: '',
-    budget: ''
+    message: ''
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    const mailtoLink = `mailto:support@setupboxes.com?subject=Contact%20Us&body=First Name: ${formData.firstName}%0D%0ALast Name: ${formData.lastName}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AMessage: ${formData.message}`;
+    window.open(mailtoLink, '_self');
   };
 
   const handleWhatsApp = () => {
@@ -37,7 +44,10 @@ const ContactPage = () => {
                   <label className="block text-sm font-medium text-gray-700">First name</label>
                   <input
                     type="text"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
                     required
                   />
                 </div>
@@ -45,7 +55,10 @@ const ContactPage = () => {
                   <label className="block text-sm font-medium text-gray-700">Last name</label>
                   <input
                     type="text"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
                     required
                   />
                 </div>
@@ -55,16 +68,11 @@ const ContactPage = () => {
                 <label className="block text-sm font-medium text-gray-700">Email</label>
                 <input
                   type="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
                   required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Company</label>
-                <input
-                  type="text"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
                 />
               </div>
 
@@ -72,35 +80,24 @@ const ContactPage = () => {
                 <label className="block text-sm font-medium text-gray-700">Phone (Optional)</label>
                 <input
                   type="tel"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="mt-1 block w-full border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700">How can we help you?</label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
+                  className="mt-1 block w-full border-gray-300 shadow-sm focus:border-orange-800 focus:ring-orange-800"
                   maxLength={500}
                   placeholder="Max 500 characters"
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Expected budget</label>
-                <div className="space-y-2">
-                  {['Less than $25K', '$25K - $50K', '$50K - $100K', '$100K+'].map((budget) => (
-                    <div key={budget} className="flex items-center">
-                      <input
-                        type="radio"
-                        name="budget"
-                        value={budget}
-                        className="h-4 w-4 text-orange-800 focus:ring-orange-800"
-                      />
-                      <label className="ml-2 text-sm text-gray-700">{budget}</label>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               <div className="flex gap-4">
@@ -127,7 +124,7 @@ const ContactPage = () => {
           <div className="space-y-8">
             <div className="relative h-64 rounded-lg overflow-hidden">
               <img 
-                src="/api/placeholder/800/400" 
+                src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80" 
                 alt="Office" 
                 className="w-full h-full object-cover"
               />
