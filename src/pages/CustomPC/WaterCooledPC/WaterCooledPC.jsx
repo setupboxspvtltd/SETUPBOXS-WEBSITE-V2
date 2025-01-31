@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const WaterCooledPC = () => {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-zinc-900 text-white min-h-screen">
       {/* Hero Section */}
       <motion.div 
         initial={{ opacity: 0 }}
@@ -13,10 +13,13 @@ const WaterCooledPC = () => {
       >
         <div className="absolute inset-0">
           <img 
-            src="/api/placeholder/1920/600" 
+            src="/watercooled.jpg" 
             alt="Gaming battlefield scene"
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-[600px] object-cover opacity-80"
           />
+            <div className="absolute inset-0 bg-black/5" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black" />
         </div>
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
@@ -28,13 +31,28 @@ const WaterCooledPC = () => {
           <p className="text-lg">Unleashing Unrivaled Entertainment</p>
         </motion.div>
       </motion.div>
+    
+    {/* Description Text */}
+    <div className="text-center max-w-7xl mx-auto pb-16">
+    <h2 className="text-4xl font-bold text-center py-12">WATER COOLED PC SERIES</h2>
 
+        <img 
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/artiom-vallat-H-qqp_Eqaww-unsplash.jpg/:/cr=t:7.43%25,l:0%25,w:100%25,h:74.99%25/rs=w:1240,h:620,cg:true/qt=q:34"
+              className="w-full h-auto object-cover mb-6"
+            />
+          <p className="text-2xl font-semibold mb-4 text-justify">
+          IMMERSE YOURSELF IN GAMING NIRVANA WITH OUR WATER COOLED PC BUILDS, DESIGNED FOR MAXIMUM PERFORMANCE AND STYLE
+          </p>
+          <p className="text-gray-400 text-justify text-lg">
+          Unleash unparalleled performance with our range of water-cooled PCs, engineered for gamers, creators, and professionals who demand the best. Experience silent operation, optimal thermal management, and enhanced speed and power in a sleek design. 
+          </p>
+        </div>
       {/* Air Cooled PC Series Section */}
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center py-12">WATER COOLED PC SERIES</h2>
         
         {/* PC Showcase */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pb-12">
           {/* Arctic Frostbite */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +60,7 @@ const WaterCooledPC = () => {
             className="flex flex-col"
           >
             <img 
-              src="/api/placeholder/600/400" 
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-849bde5.png/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300/qt=q:29" 
               alt="Arctic APEX"
               className="w-full h-[400px] object-cover mb-6"
             />
@@ -99,7 +117,7 @@ const WaterCooledPC = () => {
             className="flex flex-col"
           >
             <img 
-              src="/api/placeholder/600/400" 
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/Untitled%201.png/:/cr=t:35.32%25,l:6.52%25,w:89.29%25,h:31.55%25/rs=w:600,h:300,cg:true,m/qt=q:29" 
               alt="Shadow-Forge RX PC"
               className="w-full h-[400px] object-cover mb-6"
             />
@@ -150,19 +168,7 @@ const WaterCooledPC = () => {
           </motion.div>
           </div>
 
-        {/* Description Text */}
-        <div className="text-center max-w-5xl mx-auto pb-16">
-        <img 
-              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/artiom-vallat-H-qqp_Eqaww-unsplash.jpg/:/cr=t:7.43%25,l:0%25,w:100%25,h:74.99%25/rs=w:1240,h:620,cg:true/qt=q:34"
-              className="w-full h-[400px] object-cover mb-6"
-            />
-          <p className="text-lg font-semibold mb-4">
-          IMMERSE YOURSELF IN GAMING NIRVANA WITH OUR WATER COOLED PC BUILDS, DESIGNED FOR MAXIMUM PERFORMANCE AND STYLE
-          </p>
-          <p className="text-gray-400">
-          Unleash unparalleled performance with our range of water-cooled PCs, engineered for gamers, creators, and professionals who demand the best. Experience silent operation, optimal thermal management, and enhanced speed and power in a sleek design. 
-          </p>
-        </div>
+        
       </div>
     </div>
   );

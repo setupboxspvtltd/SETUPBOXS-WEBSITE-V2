@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const AirCooledPC = () => {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-zinc-900 text-white min-h-screen">
       {/* Hero Section */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="relative h-[600px]"
+        className="relative h-[500px]"
       >
         <div className="absolute inset-0">
           <img 
-            src="/api/placeholder/1920/600" 
+            src="/aircooled.png" 
             alt="Gaming battlefield scene"
             className="w-full h-full object-cover opacity-80"
           />
@@ -28,13 +28,30 @@ const AirCooledPC = () => {
           <p className="text-lg">Indulge in gaming's pinnacle</p>
         </motion.div>
       </motion.div>
+      <h2 className="text-4xl font-bold text-center py-12">AIR COOLED PC SERIES</h2>
+      {/* Description Text */}
+      <div className="text-center max-w-6xl mx-auto pb-16">
+        <img 
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-5406def.png/:/cr=t:6.06%25,l:0%25,w:100%25,h:50%25/rs=w:1240,h:620,cg:true/qt=q:34" 
+              alt="Cooler Master pic"
+              className="w-full h-auto object-cover mb-6"
+            />
+          <p className="text-xl font-semibold mb-4 text-justify">
+            ELEVATE YOUR GAMING EXPERIENCE WITH OUR AIR-COOLED BUILDS, BOASTING EFFICIENT COOLING FOR SILENT 
+            OPERATION, RELIABLE PERFORMANCE, AND STYLISH DESIGN.
+          </p>
+          <p className="text-gray-400 text-justify text-xl">
+            Unleash maximum gaming potential and flaunt undeniable style with our meticulously crafted systems. Feel the thrill of seamless 
+            gameplay, powered by cutting-edge air-cooling technology. Join the ranks of elite gamers who demand nothing but the best.
+          </p>
+        </div>
 
       {/* Air Cooled PC Series Section */}
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center py-12">AIR COOLED PC SERIES</h2>
+        
         
         {/* PC Showcase */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pb-16">
           {/* Arctic Frostbite */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +59,7 @@ const AirCooledPC = () => {
             className="flex flex-col"
           >
             <img 
-              src="/api/placeholder/600/400" 
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-c54cee4.png/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true/qt=q:29" 
               alt="Arctic Frostbite PC"
               className="w-full h-[400px] object-cover mb-6"
             />
@@ -99,7 +116,7 @@ const AirCooledPC = () => {
             className="flex flex-col"
           >
             <img 
-              src="/api/placeholder/600/400" 
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-525efb3.png/:/cr=t:11.26%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true/qt=q:29" 
               alt="Shadow-Forge RX PC"
               className="w-full h-[400px] object-cover mb-6"
             />
@@ -154,8 +171,8 @@ const AirCooledPC = () => {
             className="flex flex-col"
           >
             <img 
-              src="/api/placeholder/600/400" 
-              alt="Arctic Frostbite PC"
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-7792cdc.png/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:600,h:300,cg:true/qt=q:29" 
+              alt="Obsidian"
               className="w-full h-[400px] object-cover mb-6"
             />
             <h3 className="text-2xl font-semibold mb-4">OBSIDIAN</h3>
@@ -205,8 +222,8 @@ const AirCooledPC = () => {
             className="flex flex-col"
           >
             <img 
-              src="/api/placeholder/600/400" 
-              alt="Arctic Frostbite PC"
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-29bb3f6.png/:/cr=t:27.68%25,l:5.36%25,w:89.29%25,h:44.64%25/rs=w:600,h:300,cg:true,m/qt=q:29" 
+              alt="Shadow Forge GT"
               className="w-full h-[400px] object-cover mb-6"
             />
             <h3 className="text-2xl font-semibold mb-4">SHADOW-FORGE GT</h3>
@@ -260,8 +277,8 @@ const AirCooledPC = () => {
             className="flex flex-col"
           >
             <img 
-              src="/api/placeholder/600/400" 
-              alt="Arctic Frostbite PC"
+              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-0f5b6f7.png/:/cr=t:25%25,l:0%25,w:100%25,h:50%25/rs=w:1240,h:620,cg:true/qt=q:29" 
+              alt="Shadow Forge ZT"
               className="w-full h-[400px] object-cover mb-6"
             />
             <h3 className="text-2xl font-semibold mb-4">SHADOW-FORGE ZT</h3>
@@ -310,23 +327,6 @@ const AirCooledPC = () => {
             </Link>
           </motion.div>
 
-        </div>
-
-        {/* Description Text */}
-        <div className="text-center max-w-5xl mx-auto pb-16">
-        <img 
-              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-5406def.png/:/cr=t:6.06%25,l:0%25,w:100%25,h:50%25/rs=w:1240,h:620,cg:true/qt=q:34" 
-              alt="Cooler Master pic"
-              className="w-full h-[400px] object-cover mb-6"
-            />
-          <p className="text-lg font-semibold mb-4">
-            ELEVATE YOUR GAMING EXPERIENCE WITH OUR AIR-COOLED BUILDS, BOASTING EFFICIENT COOLING FOR SILENT 
-            OPERATION, RELIABLE PERFORMANCE, AND STYLISH DESIGN.
-          </p>
-          <p className="text-gray-400">
-            Unleash maximum gaming potential and flaunt undeniable style with our meticulously crafted systems. Feel the thrill of seamless 
-            gameplay, powered by cutting-edge air-cooling technology. Join the ranks of elite gamers who demand nothing but the best.
-          </p>
         </div>
       </div>
     </div>

@@ -10,22 +10,37 @@ import Navbar from './components/Navbar';
 import Storage from './pages/ITServices/Storage';
 import CyberSecurity from './pages/ITServices/CyberSecurity';
 import CloudStorages from './pages/OnlineCourses/CloudStorages';
-import AirCooled from './pages/CustomPC/AircooledPC/AirCooledPC.jsx';
-import Frostbite from "./pages/CustomPC/AircooledPC/Frostbite.jsx";
-import Obsedian from './pages/CustomPC/AircooledPC/Obsidian.jsx';
-import ShadowForgeRX from './pages/CustomPC/AircooledPC/ShadowForgeRX.jsx';
-import ShadowforgeGT from './pages/CustomPC/AircooledPC/ShadowForgeGT.jsx';
-import ShadowforgeZT from './pages/CustomPC/AircooledPC/ShadowForgeZT.jsx';
+import AirCooled from './pages/CustomPC/AirCooledPC/AirCooledPC.jsx';
+import Frostbite from "./pages/CustomPC/AirCooledPC/Frostbite.jsx";
+import Obsedian from './pages/CustomPC/AirCooledPC/Obsidian.jsx';
+import ShadowForgeRX from './pages/CustomPC/AirCooledPC/ShadowForgeRX.jsx';
+import ShadowforgeGT from './pages/CustomPC/AirCooledPC/ShadowForgeGT.jsx';
+import ShadowforgeZT from './pages/CustomPC/AirCooledPC/ShadowForgeZT.jsx';
 import OilCooled from './pages/CustomPC/OilCooledPC/OilCooledPC.jsx';
-import Nautilus from './pages/CustomPC/OilcooledPC/Nautilus.jsx';
-import Vortex from './pages/CustomPC/OilcooledPC/Vortex.jsx';
-import WaterCooled from './pages/CustomPC/WatercooledPC/WaterCooledPC.jsx';
-import ArcticApex from './pages/CustomPC/WatercooledPC/Arctic-Apex.jsx';
-import ShadowForgeTITAN from './pages/CustomPC/WatercooledPC/Shadow-Forge-Titan.jsx';
+import Nautilus from './pages/CustomPC/OilCooledPC/Nautilus.jsx';
+import Vortex from './pages/CustomPC/OilCooledPC/Vortex.jsx';
+import WaterCooled from './pages/CustomPC/WaterCooledPC/WaterCooledPC.jsx';
+import ArcticApex from './pages/CustomPC/WaterCooledPC/Arctic-Apex.jsx';
+import ShadowForgeTITAN from './pages/CustomPC/WaterCooledPC/Shadow-Forge-Titan.jsx';
 import WebHosting from './pages/ITServices/WebHosting.jsx';
 import Core from './pages/OnlineCourses/Core.jsx';
 import MaintenancePage from './components/MaintenancePage.jsx';
-
+import Orchestrationtools from './pages/OnlineCourses/OrchestrationTools.jsx';
+import DataCenterTech from './pages/OnlineCourses/DataCenterTech.jsx';
+import NvidiaNGC from './pages/OnlineCourses/NvidiaNGCContainer.jsx';
+import Networking from './pages/OnlineCourses/Networking.jsx';
+import CloudTech from './pages/OnlineCourses/CloudTech.jsx';
+import DevOps from './pages/OnlineCourses/DevOps.jsx';
+import Kubernetes from './pages/OnlineCourses/Kubernetes.jsx';
+import Linux from './pages/OnlineCourses/Linux.jsx';
+import Programming from './pages/OnlineCourses/Programming.jsx';
+import DataBase from './pages/OnlineCourses/Database.jsx';
+import DataHandling from './pages/OnlineCourses/DataHandling.jsx';
+import Security from './pages/OnlineCourses/SecurityOperationCenter.jsx';
+import Monitering from './pages/OnlineCourses/MonitoringTools.jsx';
+import Firewall from './pages/OnlineCourses/FirewallTools.jsx';
+import OtherTools from './pages/OnlineCourses/OtherTools.jsx';
+import ProjectPage from './pages/Projects.jsx';
 function App() {
     return (
         <Router>
@@ -55,22 +70,22 @@ function App() {
                     <Route path ="/web-hosting" element={<WebHosting />} />
                     <Route path ="/core" element={<Core />} />
                    <Route path ="/maintenance" element={<MaintenancePage />} />
-                   <Route path ="/orchestration-tools" element={<MaintenancePage />} />
-                   <Route path ="/data-center-tech" element={<MaintenancePage />} />
-                   <Route path ="/nvidia-ngc-container" element={<MaintenancePage />} />
-                   <Route path ="/networking" element={<MaintenancePage />} />
-                   <Route path ="/cloud-tech" element={<MaintenancePage />} />
-                   <Route path ="/devops" element={<MaintenancePage />} />
-                   <Route path ="/kubernetes" element={<MaintenancePage />} />
-                   <Route path ="/linux" element={<MaintenancePage />} />
-                   <Route path ="/programming" element={<MaintenancePage />} />
-                   <Route path ="/database" element={<MaintenancePage />} />
-                   <Route path ="/data-handling" element={<MaintenancePage />} />
-                   <Route path ="/security-operation-center" element={<MaintenancePage />} />
-                    <Route path ="/monitoring-tools" element={<MaintenancePage />} />
-                    <Route path ="/firewall-tools" element={<MaintenancePage />} />
-                    <Route path ="other-tools" element={<MaintenancePage />} />
-                    <Route path ="/projects" element={<MaintenancePage />} />
+                   <Route path ="/orchestration-tools" element={<Orchestrationtools />} />
+                   <Route path ="/data-center-tech" element={<DataCenterTech />} />
+                   <Route path ="/nvidia-ngc-container" element={<NvidiaNGC />} />
+                   <Route path ="/networking" element={<Networking />} />
+                   <Route path ="/cloud-tech" element={<CloudTech />} />
+                   <Route path ="/devops" element={<DevOps />} />
+                   <Route path ="/kubernetes" element={<Kubernetes />} />
+                   <Route path ="/linux" element={<Linux />} />
+                   <Route path ="/programming" element={<Programming />} />
+                   <Route path ="/database" element={<DataBase />} />
+                   <Route path ="/data-handling" element={<DataHandling />} />
+                   <Route path ="/security-operation-center" element={<Security />} />
+                    <Route path ="/monitoring-tools" element={<Monitering />} />
+                    <Route path ="/firewall-tools" element={<Firewall />} />
+                    <Route path ="other-tools" element={<OtherTools />} />
+                    <Route path ="/projects" element={<ProjectPage />} />
                 </Routes>
                 <Footer />
             </div>

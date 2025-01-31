@@ -140,8 +140,8 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Phone Support</p>
-                    <p className="text-gray-600">+1 (234) 567-8900</p>
-                    <p className="text-sm text-gray-500">Monday to Friday, 9am to 6pm</p>
+                    <p className="text-gray-600">+91 80153 31601</p>
+                    <p className="text-sm text-gray-500">24/7 Response time: 2-3 hours</p>
                   </div>
                 </div>
 
@@ -151,7 +151,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Email Support</p>
-                    <p className="text-gray-600">support@setupboxes.com</p>
+                    <p className="text-gray-600">support@setupboxs.com</p>
                     <p className="text-sm text-gray-500">24/7 Response time: 2-3 hours</p>
                   </div>
                 </div>

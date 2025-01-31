@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const timeoutRef = useRef(null);
+    const dropdownRefs = useRef({});
 
-    // Clear timeout on unmount
     useEffect(() => {
         return () => {
             if (timeoutRef.current) {
@@ -20,28 +22,70 @@ const Navbar = () => {
         setActiveDropdown(dropdown);
     };
 
-    const handleMouseLeave = () => {
-        // Add a small delay before closing the dropdown
+    const handleMouseLeave = (event, dropdown) => {
+        const dropdownElement = dropdownRefs.current[dropdown];
+        const relatedTarget = event.relatedTarget;
+        
+        // Check if we're moving to the dropdown content
+        if (dropdownElement && dropdownElement.contains(relatedTarget)) {
+            return;
+        }
+
         timeoutRef.current = setTimeout(() => {
             setActiveDropdown(null);
-        }, 100);
+        }, 150); // Increased delay for smoother transition
+    };
+
+    const handleDropdownMouseLeave = (event) => {
+        const relatedTarget = event.relatedTarget;
+        const navItem = event.currentTarget.parentElement;
+        
+        // Check if we're moving back to the nav item
+        if (navItem && navItem.contains(relatedTarget)) {
+            return;
+        }
+
+        timeoutRef.current = setTimeout(() => {
+            setActiveDropdown(null);
+        }, 150);
+    };
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+        setActiveDropdown(null);
+    };
+
+    const toggleMobileDropdown = (dropdown) => {
+        setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
     };
 
     return (
         <nav className="bg-white/75 border-gray-200 sticky top-0 w-full z-50 shadow-sm backdrop-blur-sm">
             <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" className="flex items-center space-x-3">
-                    <img src="http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/Untitled%20(1)-PhotoRoom.png-PhotoRoom.png/:/rs=w:185,h:104,cg:true,m/cr=w:185,h:104/qt=q:95" alt="SetupBoxes Logo" className="h-15"/>
+                    <img src="http://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/Untitled%20(1)-PhotoRoom.png-PhotoRoom.png/:/rs=w:185,h:104,cg:true,m/cr=w:185,h:104/qt=q:95" alt="SetupBoxes Logo" className="h-12 md:h-15"/>
                 </a>
-                <div className="hidden w-full md:block md:w-auto">
+
+                <button
+                    onClick={toggleMobileMenu}
+                    className="md:hidden inline-flex items-center p-2 text-gray-500 hover:text-orange-500"
+                >
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                <div className={`w-full md:block md:w-auto ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
                     <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
                         <li><a href="/" className="block py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">HOME</a></li>
-                        <li
-                            className="group relative dropdown"
-                            onMouseEnter={() => handleMouseEnter('it-services')}
-                            onMouseLeave={handleMouseLeave}
+                        
+                        {/* IT Services Dropdown */}
+                        <li className="relative"
+                            onMouseEnter={(e) => handleMouseEnter('it-services')}
+                            onMouseLeave={(e) => handleMouseLeave(e, 'it-services')}
                         >
-                            <a href="#" className="flex items-center space-x-1 py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">
+                            <button
+                                onClick={() => toggleMobileDropdown('it-services')}
+                                className="w-full flex items-center justify-between py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap"
+                            >
                                 <span>IT SERVICES</span>
                                 <svg
                                     className={`w-4 h-4 transform transition-transform duration-200 ${
@@ -50,32 +94,35 @@ const Navbar = () => {
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
-                            </a>
+                            </button>
                             {activeDropdown === 'it-services' && (
                                 <ul
-                                    className="dropdown-menu absolute bg-white shadow-lg p-4 mt-2 space-y-2 border border-gray-200 rounded-lg"
-                                    onMouseEnter={() => handleMouseEnter('it-services')}
-                                    onMouseLeave={handleMouseLeave}
+                                    ref={el => dropdownRefs.current['it-services'] = el}
+                                    onMouseLeave={handleDropdownMouseLeave}
+                                    className="md:absolute relative bg-white md:shadow-lg p-2 md:p-4 space-y-2 md:border border-gray-200 rounded-lg w-full md:w-48"
                                 >
-                                    <li><a href="/infrastructure-setup" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Infrastructure Setup</a></li>
-                                    <li><a href="/cloud-hosting" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Cloud Hosting</a></li>
-                                    <li><a href="/managed-support" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Managed Support</a></li>
-                                    <li><a href="/storage" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Storage</a></li>
-                                    <li><a href="/web-hosting" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Web Hosting</a></li>
-                                    <li><a href="/cyber-security" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Cyber Security</a></li>
+                                    <li><a href="/infrastructure-setup" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Infrastructure Setup</a></li>
+                                    <li><a href="/cloud-hosting" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Cloud Hosting</a></li>
+                                    <li><a href="/managed-support" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Managed Support</a></li>
+                                    <li><a href="/storage" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Storage</a></li>
+                                    <li><a href="/web-hosting" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Web Hosting</a></li>
+                                    <li><a href="/cyber-security" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Cyber Security</a></li>
                                 </ul>
                             )}
                         </li>
-                        <li
-                            className="group relative dropdown"
-                            onMouseEnter={() => handleMouseEnter('online-courses')}
-                            onMouseLeave={handleMouseLeave}
+
+                        {/* Online Courses Dropdown */}
+                        <li className="relative"
+                            onMouseEnter={(e) => handleMouseEnter('online-courses')}
+                            onMouseLeave={(e) => handleMouseLeave(e, 'online-courses')}
                         >
-                            <a href="#" className="flex items-center space-x-1 py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">
+                            <button
+                                onClick={() => toggleMobileDropdown('online-courses')}
+                                className="w-full flex items-center justify-between py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap"
+                            >
                                 <span>ONLINE COURSES</span>
                                 <svg
                                     className={`w-4 h-4 transform transition-transform duration-200 ${
@@ -84,23 +131,21 @@ const Navbar = () => {
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
-                            </a>
+                            </button>
                             {activeDropdown === 'online-courses' && (
                                 <ul
-                                    className="dropdown-menu absolute bg-white shadow-lg p-4 mt-2 space-y-2 border border-gray-200 rounded-lg max-h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-gray-200"
-                                    onMouseEnter={() => handleMouseEnter('online-courses')}
-                                    onMouseLeave={handleMouseLeave}
+                                    ref={el => dropdownRefs.current['online-courses'] = el}
+                                    onMouseLeave={handleDropdownMouseLeave}
+                                    className="md:absolute relative bg-white md:shadow-lg p-2 md:p-4 space-y-2 md:border border-gray-200 rounded-lg w-full md:w-48 max-h-64 overflow-y-auto"
                                 >
-                                    {/* Online courses items */}
-                                    <li><a href="/core" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Core</a></li>
-                                    <li><a href="/orchestration-tools" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Orchestration Tools</a></li>
-                                    <li><a href="/data-center-tech" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Data Center Tech</a></li>
-                                    <li><a href="/nvidia-ngc-container" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Nvidia NGC Container</a></li>
-                                    <li><a href="/networking" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Networking</a></li>
+                                    <li><a href="/core" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Core</a></li>
+                                    <li><a href="/orchestration-tools" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Orchestration Tools</a></li>
+                                    <li><a href="/data-center-tech" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Data Center Tech</a></li>
+                                    <li><a href="/nvidia-ngc-container" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Nvidia NGC Container</a></li>
+                                    <li><a href="/networking" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Networking</a></li>
                                     <li><a href="/cloud-tech" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Cloud Tech</a></li>
                                     <li><a href="/cloud-storages" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Cloud Storages</a></li>
                                     <li><a href="/devops" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">DevOps</a></li>
@@ -116,12 +161,16 @@ const Navbar = () => {
                                 </ul>
                             )}
                         </li>
-                        <li
-                            className="group relative dropdown"
-                            onMouseEnter={() => handleMouseEnter('custom-pc')}
-                            onMouseLeave={handleMouseLeave}
+
+                        {/* Custom PC Dropdown */}
+                        <li className="relative"
+                            onMouseEnter={(e) => handleMouseEnter('custom-pc')}
+                            onMouseLeave={(e) => handleMouseLeave(e, 'custom-pc')}
                         >
-                            <a href="#" className="flex items-center space-x-1 py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">
+                            <button
+                                onClick={() => toggleMobileDropdown('custom-pc')}
+                                className="w-full flex items-center justify-between py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap"
+                            >
                                 <span>CUSTOM PC</span>
                                 <svg
                                     className={`w-4 h-4 transform transition-transform duration-200 ${
@@ -130,23 +179,23 @@ const Navbar = () => {
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
-                            </a>
+                            </button>
                             {activeDropdown === 'custom-pc' && (
                                 <ul
-                                    className="dropdown-menu absolute bg-white shadow-lg p-4 mt-2 space-y-2 border border-gray-200 rounded-lg"
-                                    onMouseEnter={() => handleMouseEnter('custom-pc')}
-                                    onMouseLeave={handleMouseLeave}
+                                    ref={el => dropdownRefs.current['custom-pc'] = el}
+                                    onMouseLeave={handleDropdownMouseLeave}
+                                    className="md:absolute relative bg-white md:shadow-lg p-2 md:p-4 space-y-2 md:border border-gray-200 rounded-lg w-full md:w-48"
                                 >
-                                    <li><a href="/air-cooled-pc" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Air Cooled PC</a></li>
-                                    <li><a href="/water-cooled-pc" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Water Cooled PC</a></li>
-                                    <li><a href="/oil-cooled-pc" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">Oil Cooled PC</a></li>
+                                    <li><a href="/air-cooled-pc" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Air Cooled PC</a></li>
+                                    <li><a href="/water-cooled-pc" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Water Cooled PC</a></li>
+                                    <li><a href="/oil-cooled-pc" className="block py-2 px-4 text-gray-900 hover:text-orange-500 tracking-wide text-sm">Oil Cooled PC</a></li>
                                 </ul>
                             )}
                         </li>
+
                         <li><a href="/projects" className="block py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">PROJECTS</a></li>
                         <li><a href="/contact-us" className="block py-2 text-gray-900 hover:text-orange-500 tracking-wide text-sm whitespace-nowrap">CONTACT US</a></li>
                     </ul>

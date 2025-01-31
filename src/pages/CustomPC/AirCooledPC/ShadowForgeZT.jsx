@@ -47,7 +47,7 @@ const ShadowforgeZT = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <img 
-            src="/api/placeholder/600/600" 
+            src="/public/SFZT.png" 
             alt="Arctic Frostbite PC" 
             className="w-full rounded-lg shadow-2xl"
           />
@@ -73,7 +73,10 @@ const ShadowforgeZT = () => {
             <p className="text-gray-300">
             Shadow Forge delivers exceptional performance for both gaming enthusiasts and professional users. Equipped with the advanced AMD Ryzen™ 7 7700X,  this 8-core, 16-thread processor operates at a base clock of 4.5 GHz  and can boost up to an impressive 5.4 GHz. Its 32 MB of shared L3 cache  ensures smooth multitasking, while support for dual-channel DDR5 memory  provides ample bandwidth for demanding tasks. Whether you’re immersed in  virtual worlds or handling resource-intensive workloads, the Ryzen 7  7700X is your reliable companion.
             </p>
-            <button className="mt-6 bg-orange-500 text-white px-8 py-3 rounded hover:bg-orange-600 transition-colors uppercase">
+            <button className="mt-6 bg-orange-500 text-white px-8 py-3 rounded hover:bg-orange-600 transition-colors uppercase"
+            onClick={() => window.open('https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700x.html')}
+
+            >
               View Full Specs
             </button>
           </div>
@@ -81,26 +84,29 @@ const ShadowforgeZT = () => {
 
         {/* GPU Section */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="space-y-8"
-        >
-          <h2 className="text-3xl font-serif">AMD RADEON 7000 SERIES</h2>
-          <p className="text-gray-300">
-          Experience unparalleled speed and performance with the AMD Radeon 7000 Series GPUs, designed for gamers and creators alike. Powered by the innovative AMD architecture, these GPUs deliver exceptional performance and cutting-edge AI-powered graphics. Immerse yourself in lifelike virtual worlds with advanced ray tracing and enjoy ultra-high FPS gaming with minimal latency. Explore groundbreaking possibilities for content creation and workflow acceleration with your Shadow Forge.
-          </p>
-          <button className="bg-orange-500 text-white px-8 py-3 rounded hover:bg-orange-600 transition-colors uppercase">
-            View Full Specs
-          </button>
-          <div className="mt-8">
-            <img 
-              src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-6fc9199.png/:/cr=t:0%25,l:13.06%25,w:73.88%25,h:100%25/rs=w:600,h:451,cg:true/qt=q:34" 
-              alt="Performance Comparison" 
-              className="w-full rounded-lg"
-            />
-          </div>
-        </motion.div>
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="grid grid-cols-2 gap-12 items-center"
+                >
+                  <div>
+                    <h2 className="text-3xl font-serif mb-6">AMD RADEON 7000 SERIES</h2>
+                    <p className="text-gray-300">
+                      Experience unparalleled speed and performance with the AMD Radeon 7000 Series GPUs, designed for gamers and creators alike. Powered by the innovative AMD architecture, these GPUs deliver exceptional performance and cutting-edge AI-powered graphics. Immerse yourself in lifelike virtual worlds with advanced ray tracing and enjoy ultra-high FPS gaming with minimal latency. Explore groundbreaking possibilities for content creation and workflow acceleration with your Shadow Forge.
+                    </p>
+                    <button className="mt-6 bg-orange-500 text-white px-8 py-3 rounded hover:bg-orange-600 transition-colors uppercase"
+                     onClick={() => window.open('https://www.amd.com/en/products/graphics/amd-radeon-rx-7900xtx#product-specs')}
+
+                    >
+                      View Full Specs
+                    </button>
+                  </div>
+                  <img 
+                    src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-6fc9199.png/:/cr=t:0%25,l:13.06%25,w:73.88%25,h:100%25/rs=w:600,h:451,cg:true/qt=q:34" 
+                    alt="Performance Comparison" 
+                    className="rounded-lg"
+                  />
+                </motion.div>
 
         {/* Storage Section */}
         <motion.div 
@@ -109,17 +115,17 @@ const ShadowforgeZT = () => {
           transition={{ duration: 0.7 }}
           className="grid grid-cols-2 gap-12 items-center"
         >
+          <img 
+            src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-5511ecb.png/:/cr=t:0%25,l:15.17%25,w:69.67%25,h:100%25/rs=w:600,h:451,cg:true/qt=q:34" 
+            alt="Samsung 980 PRO SSD" 
+            className="rounded-lg"
+          />
           <div>
             <h2 className="text-3xl font-serif mb-6">EXTREME SPEED</h2>
             <p className="text-gray-300">
             The  Ultimate performance SSD  enjoy near max PCIe4 speed (up to 7000 MB/s sequential read, 6900 MB/s sequential write).Experience blazing fast speed consistently as smart thermal management minimizes performance drop due to heating.
             </p>
           </div>
-          <img 
-            src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-5511ecb.png/:/cr=t:0%25,l:15.17%25,w:69.67%25,h:100%25/rs=w:600,h:451,cg:true/qt=q:34" 
-            alt="Samsung 980 PRO SSD" 
-            className="rounded-lg"
-          />
         </motion.div>
 
         {/* Cooling Section */}
@@ -129,40 +135,42 @@ const ShadowforgeZT = () => {
           transition={{ duration: 0.7 }}
           className="grid grid-cols-2 gap-12 items-center"
         >
-          <img 
-            src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/f6aiuvo7h1ccrwlswkhd.webp/:/cr=t:12.41%25,l:0%25,w:100%25,h:75.19%25/rs=w:600,h:451,cg:true/qt=q:34" 
-            alt="Cooling System" 
-            className="rounded-lg"
-          />
           <div>
             <h2 className="text-3xl font-serif mb-6">OPTIMAL COOLING</h2>
             <p className="text-gray-300">
             At  SetupBoxs, we're all about crafting top-of-the-line PCs that stand out  and perform like champions. With our forward-thinking approach, we  ensure you get the best value for your investment.When  it comes to your processor and GPU, keeping them cool is crucial for  peak performance. Rest assured, our cooling solutions exceed every  requirement. They've been rigorously tested to guarantee top-notch  efficiency.
             </p>
           </div>
+          <img 
+            src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/f6aiuvo7h1ccrwlswkhd.webp/:/cr=t:12.41%25,l:0%25,w:100%25,h:75.19%25/rs=w:600,h:451,cg:true/qt=q:34" 
+            alt="Cooling System" 
+            className="rounded-lg"
+          />
         </motion.div>
 
         {/* Service Guarantee Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto"
-        >
-          <img 
-            src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-5488c95.png/:/cr=t:12.41%25,l:0%25,w:100%25,h:75.19%25/rs=w:600,h:451,cg:true/qt=q:34" 
-            alt="100% Satisfaction Guarantee" 
-            className="mx-auto mb-8"
-          />
-          <h2 className="text-3xl font-serif mb-6">SERVICE GUARANTEE</h2>
-          <p className="text-gray-300">
-            When you choose SetupBoxs, you're not just purchasing a top-tier PC, you're joining our 
-            vibrant family of tech enthusiasts. With roots in India, we value hard work and a friendly 
-            attitude. Our mission? Ensuring your satisfaction is our top priority, every step of the way.
-            From selecting the perfect components to providing ongoing support and to ensure that every 
-            single one of our clients is completely satisfied.
-          </p>
-        </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="grid grid-cols-2 gap-12 items-center"
+                >
+                  <img 
+                    src="https://img1.wsimg.com/isteam/ip/4b112535-6cdb-4025-b6b5-792728ede249/blob-1d73eaf.png/:/cr=t:12.41%25,l:0%25,w:100%25,h:75.19%25/rs=w:600,h:451,cg:true/qt=q:34" 
+                    alt="100% Satisfaction Guarantee" 
+                    className="mx-auto mb-8"
+                  />
+                  <div>
+                  <h2 className="text-3xl font-serif mb-6">SERVICE GUARANTEE</h2>
+                  <p className="text-gray-300">
+                    When you choose SetupBoxs, you're not just purchasing a top-tier PC, you're joining our 
+                    vibrant family of tech enthusiasts. With roots in India, we value hard work and a friendly 
+                    attitude. Our mission? Ensuring your satisfaction is our top priority, every step of the way.
+                    From selecting the perfect components to providing ongoing support and to ensure that every 
+                    single one of our clients is completely satisfied.
+                  </p>
+                  </div>
+                </motion.div>
       </section>
     </div>
   );
