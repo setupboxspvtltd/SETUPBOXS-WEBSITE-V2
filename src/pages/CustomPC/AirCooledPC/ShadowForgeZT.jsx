@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import BuyButton from '../../../components/Clicktobuy';
 
 const ShadowforgeZT = () => {
   return (
@@ -33,11 +34,7 @@ const ShadowforgeZT = () => {
               <p>PSU - Deepcool DQ850M-V3L 850W 80+ GOLD</p>
             </div>
             
-            <button 
-              className="bg-orange-500 text-white px-8 py-3 rounded hover:bg-orange-600 transition-colors uppercase"
-            >
-              Click Here to Buy
-            </button>
+            <BuyButton />
           </div>
         </div>
         

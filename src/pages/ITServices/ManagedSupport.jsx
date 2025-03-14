@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Cloud, Server, Shield, Database, Monitor, Cpu, HardDrive, Network, Lock, Wifi, Settings, LayoutGrid } from 'lucide-react';
-
+import  CTASection from '../../components/CTAsection';
 const ManagedSupport = () => {
   const services = [
     {
@@ -104,7 +104,7 @@ const ManagedSupport = () => {
       </div>
 
       {/* Services Section */}
-      <div className="max-w-7xl mx-auto mt-12">
+      <div className="max-w-7xl mx-auto mt-12 mb-8">
         <h1 className="text-5xl font-serif text-black text-center mb-16">
           OUR LEVEL OF SUPPORT!
         </h1>
@@ -140,20 +140,7 @@ const ManagedSupport = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <section className="bg-[#E75033] rounded-8xl text-center p-16 mb-20 shadow-xl mt-10">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-8">
-            Ready to Transform Your Infrastructure?
-          </h2>
-          <p className="text-red-100 mb-10 text-xl">
-            Let's discuss how we can build a customized solution for your business needs.
-          </p>
-          <button className="bg-white text-red-600 px-12 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl">
-            Start Your Journey Now
-          </button>
-        </div>
-      </section>
+      <CTASection />
     </div>
   );
 };

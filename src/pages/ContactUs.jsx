@@ -26,7 +26,7 @@ const ContactPage = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent("Hello, I'd like to discuss your services.");
-    window.open(`https://wa.me/1234567890?text=${message}`, '_blank');
+    window.open(`https://wa.me/918015331601?text=${message}`, '_blank');
   };
 
   return (

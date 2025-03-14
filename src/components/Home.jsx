@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import Services from './Services';
 import OperatingSystems from './OperatingSystems';
 
@@ -24,9 +25,13 @@ const Home = () => {
                         <p className="text-lg md:text-xl text-gray-200 mb-8 animate-fade-in-up delay-100">
                             Transform your business with cutting-edge technology solutions tailored to your needs
                         </p>
-                        <button className="bg-[#E75033] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#D64528] transition-all transform hover:scale-105 animate-fade-in">
+                        {/* Updated Button with Link */}
+                        <Link
+                            to="/contact-us"
+                            className="bg-[#E75033] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#D64528] transition-all transform hover:scale-105 animate-fade-in inline-block"
+                        >
                             Get Free Consultation
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -58,9 +63,13 @@ const Home = () => {
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
                     <p className="text-lg mb-8">Schedule a free consultation with our tech experts</p>
-                    <button className="bg-white text-[#E75033] px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    {/* Updated Button with Link */}
+                    <Link
+                        to="/contact-us"
+                        className="bg-white text-[#E75033] px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+                    >
                         Start Now - It's Free
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import BuyButton from '../../../components/Clicktobuy';
 
 const Vortex = () => {
   return (
@@ -32,11 +33,7 @@ const Vortex = () => {
               <p>PSU - CORSAIR RM1000e</p>
             </div>
             
-            <button 
-              className="bg-orange-500 text-white px-8 py-3 rounded hover:bg-orange-600 transition-colors uppercase"
-            >
-              Buy Now
-            </button>
+            <BuyButton />
           </div>
         </div>
         
