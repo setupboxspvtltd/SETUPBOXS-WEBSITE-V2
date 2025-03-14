@@ -44,7 +44,7 @@ const ShadowforgeGT = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <img 
-            src="/public/SFGT.png" 
+            src="/SFGT.png" 
             alt="Arctic Frostbite PC" 
             className="w-full rounded-lg shadow-2xl"
           />

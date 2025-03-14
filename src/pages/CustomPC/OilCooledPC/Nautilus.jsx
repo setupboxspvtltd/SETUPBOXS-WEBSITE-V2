@@ -44,7 +44,7 @@ const Nautilus = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <img 
-            src="/public/Nautilus.png" 
+            src="/Nautilus.png" 
             alt="Arctic Frostbite PC" 
             className="w-full rounded-lg shadow-2xl"
           />

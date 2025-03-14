@@ -43,7 +43,7 @@ const Vortex = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <img 
-            src="/public/Vortex.png" 
+            src="/Vortex.png" 
             alt="Vortex" 
             className="w-full rounded-lg shadow-2xl"
           />

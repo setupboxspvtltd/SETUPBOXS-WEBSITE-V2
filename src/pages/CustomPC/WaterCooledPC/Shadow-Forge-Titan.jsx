@@ -44,7 +44,7 @@ const ShadowForgeTITAN = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <img 
-            src="/public/SFTITAN.png" 
+            src="/SFTITAN.png" 
             alt="Shadow Forage Titan" 
             className="w-full rounded-lg shadow-2xl"
           />
